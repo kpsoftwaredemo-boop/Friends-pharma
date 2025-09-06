@@ -1,0 +1,6 @@
+# Allow all search engine bots to crawl the entire site
+User-agent: *
+Allow: /
+
+# Location of the sitemap
+Sitemap: https://friendspharma.shop/sitemap.xml

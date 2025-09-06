@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Friends Pharma | Online Medical Store & Pharmacy in Pakistan</title>
+    <meta name="description" content="Order medicines and medical supplies online from Friends Pharma, your trusted online pharmacy in Pakistan. Fast home delivery for all your health and wellness needs.">
+    <meta name="keywords" content="Friends Pharma, Friends pharma shop, Friends pharma pharmacy, Online midcal shop, Online medicines order, online pharmacy Pakistan, online medical store, buy medicines online, order medicines, medical supplies, health products, pharmacy delivery, surgical instruments">
+    <meta name="author" content="Friends Pharma">
+    <link rel="canonical" href="https://friendspharma.shop/">
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="Friends Pharma | Online Medical Store & Pharmacy">
+    <meta property="og:description" content="Your one-stop shop for reliable medical and pharmaceutical supplies with fast delivery across Pakistan.">
+    <meta property="og:image" content="https://friendspharma.shop/icons/og-image.png"> <!-- Zaroori: Is path par aek image upload karein -->
+    <meta property="og:url" content="https://friendspharma.shop/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Friends Pharma | Online Medical Store & Pharmacy">
+    <meta name="twitter:description" content="Your one-stop shop for reliable medical and pharmaceutical supplies with fast delivery across Pakistan.">
+    <meta name="twitter:image" content="https://friendspharma.shop/icons/og-image.png"> <!-- Zaroori: Is path par aek image upload karein -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js for Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- PWA Manifest & Theme Color -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0284c7">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+
+    <!-- JSON-LD Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Friends Pharma",
+      "url": "https://friendspharma.shop/",
+      "logo": "https://friendspharma.shop/icons/icon-512x512.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-301-9022815",
+        "contactType": "Customer Service"
+      }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-primary': '#0284c7',
+                        'brand-secondary': '#0369a1',
+                        'brand-accent': '#e0f2fe',
+                        'brand-bg': '#f8fafc',
+                        'brand-surface': '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        .panel { transition: transform 0.3s ease-in-out; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .product-card { animation: fadeIn 0.5s ease-out; }
+        .favorite-btn.is-favorite svg {
+            fill: #ef4444;
+            stroke: #ef4444;
+        }
+        .skeleton-card {
+            background-color: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            padding: 1rem;
+        }
+        .skeleton {
+            background-color: #e5e7eb;
+            border-radius: 0.25rem;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            50% { opacity: .5; }
+        }
+        #category-filters-container::-webkit-scrollbar { height: 4px; }
+        #category-filters-container::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="bg-brand-bg font-sans text-gray-800">
+
+    <!-- 1. Header Section -->
+    <header class="bg-brand-surface/80 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-8">
+                    <!-- SEO Change: Used h1 for the main store name for semantic importance -->
+                    <h1 class="text-2xl lg:text-3xl font-serif text-brand-secondary">
+                        <a href="https://friendspharma.shop/">Friends Pharma</a>
+                    </h1>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#products" class="text-gray-600 hover:text-brand-primary transition-colors">Products</a>
+                        <a href="#contact" class="text-gray-600 hover:text-brand-primary transition-colors">Contact</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="cart-button" class="relative text-gray-600 hover:text-brand-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button id="profile-button" class="text-gray-600 hover:text-brand-primary transition-colors"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Slider Section -->
+        <section class="bg-brand-secondary overflow-hidden">
+            <div class="swiper-container h-64 md:h-80 lg:h-96">
+                <div class="swiper-wrapper"></div>
+            </div>
+        </section>
+
+        <!-- PWA Install Banner -->
+        <section id="install-pwa-banner" class="bg-brand-accent py-4 hidden items-center justify-center">
+            <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between w-full">
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-brand-secondary mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    <p class="font-semibold text-brand-secondary">Get a better experience. Install our app!</p>
+                </div>
+                <button id="install-pwa-btn" class="bg-brand-secondary text-white font-bold py-2 px-6 rounded-lg hover:bg-brand-primary transition-colors whitespace-nowrap">
+                    Install
+                </button>
+            </div>
+        </section>
+
+        <!-- Product Grid Section -->
+        <section id="products" class="py-12">
+            <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div id="product-view-nav" class="flex justify-center border-b pb-4 mb-6 space-x-4">
+                    <button class="product-view-btn text-base font-semibold border-b-2 border-brand-primary text-brand-primary pb-1" data-view="all">All Products</button>
+                    <button class="product-view-btn text-base font-semibold border-b-2 border-transparent text-gray-500 hover:text-brand-primary pb-1" data-view="favorites">My Favorites</button>
+                </div>
+
+                <div id="category-filters-container" class="flex items-center gap-3 mb-6 overflow-x-auto pb-4"></div>
+
+                <div id="search-container" class="max-w-xl mx-auto mb-10">
+                    <div class="relative">
+                        <input type="text" id="search-bar" placeholder="Search by name, brand, or batch number..." class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-full focus:ring-2 focus:ring-brand-accent focus:border-brand-primary transition">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"></div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-brand-secondary text-white">
+        <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="store-name-footer text-2xl font-serif">Friends Pharma</h3>
+                    <p class="mt-2 text-gray-300 text-sm">Your one-stop shop for reliable medical and pharmaceutical supplies.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase">Links</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="https://friendspharma.shop/" class="hover:text-brand-accent transition-colors">Home</a></li>
+                        <li><a href="#products" class="hover:text-brand-accent transition-colors">Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase">Contact</h4>
+                    <ul id="footer-contact-info" class="mt-4 space-y-2 text-sm"></ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold tracking-wider uppercase">Follow Us</h4>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427.465C9.793 2.013 10.147 2 12.315 2zm-1.161 2.043c-1.049.045-1.748.213-2.228.402a2.898 2.898 0 00-1.258.824 2.898 2.898 0 00-.824 1.258c-.189.48-.357 1.179-.402 2.228-.045 1.012-.057 1.347-.057 3.731s.012 2.719.057 3.731c.045 1.049.213 1.748.402 2.228a2.898 2.898 0 00.824 1.258 2.898 2.898 0 001.258.824c.48.189 1.179.357 2.228.402 1.012.045 1.347.057 3.731.057s2.719-.012 3.731-.057c1.049-.045 1.748.213 2.228-.402a2.898 2.898 0 001.258-.824 2.898 2.898 0 00.824-1.258c.189.48.357-1.179.402-2.228.045-1.012.057-1.347.057-3.731s-.012-2.719-.057-3.731c-.045-1.049-.213-1.748-.402-2.228a2.898 2.898 0 00-.824-1.258 2.898 2.898 0 00-1.258-.824c-.48-.189-1.179-.357-2.228-.402-1.012-.045-1.347-.057-3.731-.057s-2.719.012-3.731.057zm3.204 1.511a4.615 4.615 0 100 9.232 4.615 4.615 0 000-9.232zM12 14.81a2.81 2.81 0 110-5.62 2.81 2.81 0 010 5.62zM16.95 6.586a1.14 1.14 0 100 2.28 1.14 1.14 0 000-2.28z" clip-rule="evenodd" /></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p class="store-name-copyright">&copy; 2024 Friends Pharma. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- All Panels and Modals -->
+    <div id="cart-panel" class="fixed inset-0 bg-black/60 z-50 hidden"><div id="cart-content" class="panel absolute top-0 right-0 h-full w-full max-w-md bg-brand-surface shadow-lg transform translate-x-full flex flex-col"></div></div>
+    <div id="checkout-panel" class="fixed inset-0 bg-black/60 z-50 hidden"><div id="checkout-content" class="panel absolute top-0 right-0 h-full w-full max-w-md bg-brand-surface shadow-lg transform translate-x-full flex flex-col"></div></div>
+    <div id="auth-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4"><div id="auth-modal-content" class="bg-brand-surface rounded-lg shadow-xl w-full max-w-md p-8 relative fade-in"></div></div>
+    <div id="profile-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4"><div id="profile-modal-content" class="bg-brand-surface rounded-lg shadow-xl w-full max-w-md p-8 relative fade-in"></div></div>
+
+    <!-- START: Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <!-- END: Firebase SDKs -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Firebase Configuration ---
+            const firebaseConfig = {
+                apiKey: "AIzaSyB6Ce3tA6iIOsEejca7U7kqHb6GMoaf8C8",
+                authDomain: "mata4x-caa39.firebaseapp.com",
+                databaseURL: "https://mata4x-caa39-default-rtdb.firebaseio.com",
+                projectId: "mata4x-caa39",
+                storageBucket: "mata4x-caa39.firebasestorage.app",
+                messagingSenderId: "671191529609",
+                appId: "1:671191529609:web:d56ab7de30117ded95ee58",
+                measurementId: "G-C3XZKPZZWN"
+            };
+            firebase.initializeApp(firebaseConfig);
+            const auth = firebase.auth();
+            const db = firebase.database();
+            
+            // --- Global State ---
+            let siteSettings = {};
+            let allProducts = [];
+            let cart = JSON.parse(localStorage.getItem('friendsPharmaCart')) || [];
+            let favorites = JSON.parse(localStorage.getItem('friendsPharmaFavorites')) || [];
+            let userState = { loggedIn: false, name: '', email: '', address: { line1: '', city: '', phone: '' } }; 
+            let currentProductView = 'all';
+            let currentCategoryFilter = 'All';
+            let allCategories = [];
+
+            const productGrid = document.getElementById('product-grid');
+            const categoryFiltersContainer = document.getElementById('category-filters-container');
+            const productViewNav = document.getElementById('product-view-nav');
+            const searchBar = document.getElementById('search-bar');
+            
+            // --- Core Functions ---
+            const init = () => {
+                loadSiteData();
+                updateCartUI();
+                attachEventListeners();
+                updateUIForAuthState();
+                initPWA();
+            };
+
+            const openPanel = (panel) => { panel.classList.remove('hidden'); setTimeout(() => panel.querySelector('.panel').classList.remove('translate-x-full'), 10); };
+            const closePanel = (panel) => { panel.querySelector('.panel').classList.add('translate-x-full'); setTimeout(() => panel.classList.add('hidden'), 300); };
+            const showModal = (modal) => modal.classList.remove('hidden');
+            const hideModal = (modal) => modal.classList.add('hidden');
+
+            function loadSiteData() {
+                db.ref('settings').on('value', snapshot => {
+                    if (snapshot.exists()) {
+                        siteSettings = snapshot.val();
+                        document.querySelector('h1 a').textContent = siteSettings.general?.storeName || 'Friends Pharma';
+                        document.querySelector('.store-name-footer').textContent = siteSettings.general?.storeName || 'Friends Pharma';
+                        document.querySelector('.store-name-copyright').innerHTML = `&copy; 2024 ${siteSettings.general?.storeName || 'Friends Pharma'}. All Rights Reserved.`;
+                        document.getElementById('footer-contact-info').innerHTML = `<li><p>${siteSettings.general?.address || '123 Health St'}</p></li><li><p>Phone: ${siteSettings.general?.contactPhone || 'N/A'}</p></li><li><p>Email: ${siteSettings.general?.contactEmail || 'N/A'}</p></li>`;
+                    }
+                });
+
+                db.ref('sliders').on('value', snapshot => {
+                    const swiperWrapper = document.querySelector('.swiper-wrapper');
+                    swiperWrapper.innerHTML = !snapshot.exists() || snapshot.numChildren() === 0 ? `<div class="swiper-slide flex items-center justify-center text-white" style="background-image: url('https://via.placeholder.com/1200x400/0369a1/FFFFFF?text=Medical+Supplies');"><div class="absolute inset-0 bg-black/50 flex items-center justify-center"><div class="text-center text-white p-4"><h2 class="text-3xl md:text-5xl font-serif">Welcome to Friends Pharma</h2><p class="mt-2 text-lg">Your health is our priority.</p></div></div></div>` : '';
+                    if (snapshot.exists()) { snapshot.forEach(child => { const slide = child.val(); swiperWrapper.innerHTML += `<div class="swiper-slide relative bg-cover bg-center" style="background-image: url('${slide.url}');"><div class="absolute inset-0 bg-black/50 flex items-center justify-center"><div class="text-center text-white p-4"><h2 class="text-3xl md:text-5xl font-serif">${slide.title}</h2><p class="mt-2 text-lg">${slide.subtitle}</p></div></div></div>`; }); }
+                    new Swiper('.swiper-container', { loop: snapshot.numChildren() > 1, autoplay: { delay: 4000, disableOnInteraction: false } });
+                });
+
+                renderSkeletonLoaders();
+                db.ref('categories').on('value', catSnapshot => {
+                    allCategories = ['All'];
+                    if (catSnapshot.exists()) { 
+                        catSnapshot.forEach(child => {
+                            if(child.val() && child.val().name) {
+                                allCategories.push(child.val().name);
+                            }
+                        }); 
+                    }
+                    renderCategories();
+                    db.ref('products').on('value', snapshot => {
+                        allProducts = [];
+                        if (snapshot.exists()) { snapshot.forEach(child => { allProducts.push({ id: child.key, ...child.val() }); }); }
+                        filterAndRenderProducts(); 
+                    });
+                });
+            }
+
+            // --- UI Rendering ---
+            const renderSkeletonLoaders = () => { productGrid.innerHTML = Array(8).fill('').map(() => `<div class="skeleton-card"><div class="skeleton w-full h-48 mb-4"></div><div class="skeleton w-3/4 h-4 mb-2"></div><div class="skeleton w-1/2 h-3 mb-4"></div><div class="skeleton w-full h-10"></div></div>`).join(''); };
+            
+            const filterAndRenderProducts = () => {
+                const searchTerm = searchBar.value.toLowerCase();
+                let productsToDisplay;
+
+                if (currentProductView === 'favorites') {
+                    productsToDisplay = allProducts.filter(p => favorites.includes(p.id));
+                    categoryFiltersContainer.style.display = 'none';
+                    document.getElementById('search-container').style.display = 'none';
+                } else {
+                    productsToDisplay = allProducts;
+                    categoryFiltersContainer.style.display = 'flex';
+                    document.getElementById('search-container').style.display = 'block';
+                }
+
+                if (currentProductView !== 'favorites' && currentCategoryFilter !== 'All') {
+                    productsToDisplay = productsToDisplay.filter(p => p.category === currentCategoryFilter);
+                }
+
+                if (searchTerm) {
+                    productsToDisplay = productsToDisplay.filter(p => 
+                        p.name.toLowerCase().includes(searchTerm) ||
+                        (p.brand && p.brand.toLowerCase().includes(searchTerm)) ||
+                        (p.batchNumber && p.batchNumber.toString().toLowerCase().includes(searchTerm))
+                    );
+                }
+                
+                renderProductCards(productsToDisplay);
+            };
+
+            const renderProductCards = (productsToDisplay) => {
+                const starSVG = `<svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>`;
+                if (productsToDisplay.length === 0) {
+                    productGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10">${currentProductView === 'favorites' ? "You haven't added any favorites yet." : "No products found matching your criteria."}</p>`;
+                    return;
+                }
+                productGrid.innerHTML = productsToDisplay.map(p => {
+                    const isFavorite = favorites.includes(p.id);
+                    const productDescription = `Buy ${p.name} online at Friends Pharma. High-quality ${p.category || 'medical supply'} from ${p.brand || 'a trusted brand'}.`;
+                    
+                    return `
+                    <!-- SEO Change: Added Schema.org markup for Product -->
+                    <div class="product-card bg-brand-surface rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col" data-id="${p.id}" itemscope itemtype="https://schema.org/Product">
+                        <meta itemprop="sku" content="${p.id}">
+                        <meta itemprop="description" content="${productDescription}">
+                        <div itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                           <meta itemprop="name" content="${p.brand || 'N/A'}">
+                        </div>
+
+                        <div class="relative">
+                            <img itemprop="image" src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover rounded-t-lg">
+                            <button class="favorite-btn absolute top-3 right-3 bg-white/70 backdrop-blur-sm p-2 rounded-full text-gray-400 hover:text-red-500 transition-colors ${isFavorite ? 'is-favorite' : ''}" title="Add to Favorites">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <h3 itemprop="name" class="font-bold text-gray-800 text-base pr-2">${p.name}</h3>
+                                <p class="font-semibold text-gray-600 text-base whitespace-nowrap">
+                                    <meta itemprop="priceCurrency" content="PKR">
+                                    <span itemprop="price">${(p.price || 0).toFixed(0)}</span> PKR
+                                </p>
+                                <link itemprop="availability" href="https://schema.org/InStock" />
+                                <link itemprop="url" href="https://friendspharma.shop/#products" />
+                            </div>
+                            <div class="text-xs text-gray-500 mb-3 flex-grow">
+                                <p><span class="font-medium">Brand:</span> ${p.brand || 'N/A'}</p>
+                                <p><span class="font-medium">Batch No:</span> ${p.batchNumber || 'N/A'}</p>
+                            </div>
+                            <div class="mt-auto flex justify-between items-center" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                                <meta itemprop="ratingValue" content="${p.rating || 4.5}">
+                                <meta itemprop="reviewCount" content="${Math.floor(Math.random() * 50) + 5}"> <!-- Example review count -->
+                                <div class="flex">
+                                    ${starSVG.repeat(Math.round(p.rating) || 0)}
+                                </div>
+                                <button class="add-to-cart-btn bg-brand-secondary text-white py-2 px-5 rounded text-xs font-semibold hover:bg-brand-primary transition-colors">Buy</button>
+                            </div>
+                        </div>
+                    </div>`;
+                }).join('');
+            };
+            
+            const renderCategories = () => {
+                categoryFiltersContainer.innerHTML = allCategories.map(cat => {
+                    const isActive = cat === currentCategoryFilter ? 'bg-brand-secondary text-white border-brand-secondary' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-100';
+                    return `<button class="category-btn px-4 py-1.5 rounded-full text-sm font-medium transition-colors border whitespace-nowrap ${isActive}" data-category="${cat}">${cat}</button>`;
+                }).join('');
+            };
+
+            // --- Cart Logic ---
+            const addToCart = (productId) => { 
+                const product = allProducts.find(p => p.id === productId);
+                if (!product) return;
+                const existingItem = cart.find(item => item.id === productId && !item.isPack);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ ...product, id: productId, originalId: productId, quantity: 1, isPack: false });
+                }
+                updateCartUI();
+            };
+
+            const togglePackInCart = (cartId) => {
+                const itemIndex = cart.findIndex(item => item.id === cartId);
+                if (itemIndex === -1) return;
+                const item = cart[itemIndex];
+                const originalProduct = allProducts.find(p => p.id === item.originalId);
+                if (!originalProduct || !originalProduct.packPrice) return;
+                const currentQuantity = item.quantity;
+                const isSwitchingToPack = !item.isPack;
+                const newCartId = isSwitchingToPack ? item.originalId + '_pack' : item.originalId;
+                cart.splice(itemIndex, 1);
+                const existingNewTypeItem = cart.find(i => i.id === newCartId);
+                if(existingNewTypeItem){
+                    existingNewTypeItem.quantity += currentQuantity;
+                } else {
+                    if (isSwitchingToPack) {
+                        cart.push({ ...originalProduct, id: newCartId, originalId: item.originalId, name: `${originalProduct.name} (Full Pack)`, price: originalProduct.packPrice, quantity: currentQuantity, isPack: true });
+                    } else {
+                        cart.push({ ...originalProduct, id: newCartId, originalId: item.originalId, name: originalProduct.name, price: originalProduct.price, quantity: currentQuantity, isPack: false });
+                    }
+                }
+                updateCartUI();
+            };
+
+            const changeQuantity = (cartId, change) => { const item = cart.find(i => i.id === cartId); if (item) { item.quantity += change; if (item.quantity <= 0) { cart = cart.filter(i => i.id !== cartId); } updateCartUI(); } };
+            const updateCartUI = () => { localStorage.setItem('friendsPharmaCart', JSON.stringify(cart)); renderCartPanel(); const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0); const cartCountEl = document.getElementById('cart-count'); if (totalItems > 0) { cartCountEl.textContent = totalItems; cartCountEl.classList.remove('hidden'); } else { cartCountEl.classList.add('hidden'); } };
+            
+            const renderCartPanel = () => {
+                const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                let content = `<div class="flex justify-between items-center p-5 border-b"><h2 class="text-xl font-semibold">Your Cart</h2><button class="close-panel-btn text-2xl text-gray-500 hover:text-gray-800">&times;</button></div><div class="flex-grow p-5 overflow-y-auto">`;
+                if (cart.length === 0) { content += `<p class="text-gray-500 text-center mt-8">Your cart is empty.</p>`; } else {
+                    content += cart.map(item => {
+                        const originalProduct = allProducts.find(p => p.id === item.originalId);
+                        const hasPackPrice = originalProduct && originalProduct.packPrice;
+                        return `<div class="flex items-start justify-between py-4 border-b"><div class="flex items-start gap-4"><img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md"><div><p class="font-semibold leading-tight">${item.name}</p><p class="text-sm text-gray-600 mt-1">PKR ${item.price.toFixed(0)}</p>${hasPackPrice ? `<div class="mt-2"><label class="flex items-center cursor-pointer text-sm"><input type="checkbox" class="pack-toggle-checkbox h-4 w-4 rounded border-gray-300 text-brand-primary" data-cart-id="${item.id}" ${item.isPack ? 'checked' : ''}><span class="ml-2 font-medium text-green-700">Full Pack</span></label></div>` : ''}</div></div><div class="flex flex-col items-end" data-cart-id="${item.id}"><div class="flex items-center gap-2"><button class="decrease-qty w-6 h-6 border rounded">-</button><span>${item.quantity}</span><button class="increase-qty w-6 h-6 border rounded">+</button></div><button class="remove-item-btn text-xs text-red-500 hover:underline mt-2">Remove</button></div></div>`;
+                    }).join('');
+                }
+                content += `</div><div class="p-5 border-t bg-gray-50"><div class="flex justify-between items-center font-bold text-lg mb-4"><span>Subtotal</span><span>PKR ${total.toFixed(0)}</span></div><button id="checkout-btn" class="w-full bg-brand-primary text-white py-3 rounded-md font-semibold hover:bg-brand-secondary ${cart.length === 0 ? 'bg-gray-400 cursor-not-allowed' : ''}" ${cart.length === 0 ? 'disabled' : ''}>Proceed to Checkout</button></div>`;
+                document.getElementById('cart-content').innerHTML = content;
+            };
+
+            // --- Authentication, Favorites, Other Modals ---
+            const toggleFavorite = (productId) => { const index = favorites.indexOf(productId); if (index > -1) { favorites.splice(index, 1); } else { favorites.push(productId); } localStorage.setItem('friendsPharmaFavorites', JSON.stringify(favorites)); filterAndRenderProducts(); };
+            auth.onAuthStateChanged(user => { if (user) { userState = { loggedIn: true, name: user.displayName || user.email.split('@')[0], email: user.email, uid: user.uid, address: userState.address || {} }; } else { userState = { loggedIn: false, name: '', email: '', uid: null, address: {} }; } updateUIForAuthState(); });
+            const updateUIForAuthState = () => { const profileBtn = document.getElementById('profile-button'); if (userState.loggedIn) { profileBtn.innerHTML = `<div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center text-brand-secondary font-bold">${userState.name.charAt(0).toUpperCase()}</div>`; } else { profileBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>`; } };
+            const renderAuthModal = (showLogin = true) => { const contentEl = document.getElementById('auth-modal-content'); contentEl.innerHTML = `<button class="close-modal-btn absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl">&times;</button>${showLogin ? `<div id="login-form"><h2 class="text-2xl font-bold mb-6 text-center">Login</h2><form id="login-form-element"><div class="mb-4"><input name="email" type="email" placeholder="Email" class="mt-1 w-full p-2 border rounded" required></div><div class="mb-6"><input name="password" type="password" placeholder="Password" class="mt-1 w-full p-2 border rounded" required></div><button type="submit" class="w-full bg-brand-primary text-white py-2 rounded">Login</button></form><p class="text-center text-sm mt-4">No account? <a href="#" class="show-signup-link font-medium text-brand-primary">Sign up</a></p></div>` : `<div id="signup-form"><h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2><form id="signup-form-element"><div class="mb-4"><input name="name" type="text" placeholder="Full Name" class="mt-1 w-full p-2 border rounded" required></div><div class="mb-4"><input name="email" type="email" placeholder="Email" class="mt-1 w-full p-2 border rounded" required></div><div class="mb-6"><input name="password" type="password" placeholder="Password" class="mt-1 w-full p-2 border rounded" required minlength="6"></div><button type="submit" class="w-full bg-brand-primary text-white py-2 rounded">Create Account</button></form><p class="text-center text-sm mt-4">Have an account? <a href="#" class="show-login-link font-medium text-brand-primary">Login</a></p></div>`}`; showModal(document.getElementById('auth-modal')); };
+            const renderProfileModal = (view = 'main') => { const contentEl = document.getElementById('profile-modal-content'); let content = `<button class="close-modal-btn absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl">&times;</button>`; if (view === 'main') { content += `<h2 class="text-2xl font-bold mb-6 text-center">My Account</h2><div class="space-y-3"><button class="profile-view-btn w-full text-left p-3 bg-gray-100 hover:bg-brand-accent rounded-md" data-view="edit">Edit Profile</button><button class="profile-view-btn w-full text-left p-3 bg-gray-100 hover:bg-brand-accent rounded-md" data-view="history">Order History</button><button id="logout-btn" class="w-full text-left p-3 bg-red-100 hover:bg-red-200 text-red-700 rounded-md">Logout</button></div>`; } else if (view === 'edit') { content += `<h2 class="text-2xl font-bold mb-6 text-center">Edit Profile</h2><button class="profile-view-btn absolute top-4 left-4 text-sm font-semibold text-brand-primary hover:underline" data-view="main">&larr; Back</button><form id="edit-profile-form"><div class="mb-4"><label class="block text-sm">Full Name</label><input type="text" name="name" class="mt-1 w-full p-2 border rounded" value="${userState.name}" required></div><div class="mb-4"><label class="block text-sm">Phone Number</label><input type="tel" name="phone" class="mt-1 w-full p-2 border rounded" value="${userState.address.phone || ''}"></div><div class="mb-4"><label class="block text-sm">Address</label><input type="text" name="address" class="mt-1 w-full p-2 border rounded" value="${userState.address.line1 || ''}"></div><div class="mb-6"><label class="block text-sm">City</label><input type="text" name="city" class="mt-1 w-full p-2 border rounded" value="${userState.address.city || ''}"></div><button type="submit" class="w-full bg-brand-primary text-white py-2 rounded">Save Changes</button></form>`; } else if (view === 'history') { content += `<h2 class="text-2xl font-bold mb-6 text-center">Order History</h2><button class="profile-view-btn absolute top-4 left-4 text-sm font-semibold text-brand-primary hover:underline" data-view="main">&larr; Back</button><div id="order-history-content" class="space-y-4 max-h-96 overflow-y-auto"><p class="text-center text-gray-500 py-8">Loading order history...</p></div>`; db.ref(`orders/${userState.uid}`).orderByChild('timestamp').once('value', snapshot => { const historyContent = document.getElementById('order-history-content'); if (!snapshot.exists()) { historyContent.innerHTML = `<p class="text-center text-gray-500 py-8">You have no past orders.</p>`; return; } let ordersHTML = ''; let orders = []; snapshot.forEach(child => { orders.push(child.val()) }); const statusColors = { 'Completed': 'green', 'Pending': 'yellow', 'Cancelled': 'red' }; orders.reverse().forEach(order => { ordersHTML += `<div class="p-3 border rounded-md"><div class="flex justify-between items-center"><p class="font-semibold">Order #${order.id.slice(-6)}</p><span class="text-xs font-bold text-${statusColors[order.status] || 'gray'}-600 bg-${statusColors[order.status] || 'gray'}-100 px-2 py-1 rounded-full">${order.status.toUpperCase()}</span></div><p class="text-sm text-gray-500 mt-1">Date: ${order.date} - Total: PKR ${order.total.toFixed(2)}</p><p class="text-xs font-medium text-gray-700 mt-1">Payment: ${order.paymentMethod === 'Online Payment' ? `${order.onlineMethod} (TrxID: ${order.trxId || 'N/A'})` : 'Cash on Delivery'}</p><div class="text-xs text-gray-600 mt-2 border-t pt-2">${order.items.map(item => `<span>${item.name} (x${item.quantity})</span>`).join('<br>')}</div></div>`; }); historyContent.innerHTML = ordersHTML; }); } contentEl.innerHTML = content; showModal(document.getElementById('profile-modal')); };
+            const renderCheckoutPanel = () => { const checkoutContent = document.getElementById('checkout-content'); const paymentSettings = siteSettings.payment || {}; const deliverySettings = siteSettings.delivery || {}; let paymentNumberToShow = ''; let onlinePaymentOptionsHTML = ''; if (paymentSettings.easypaisa?.enabled) { onlinePaymentOptionsHTML += `<div class="flex items-center"><input id="easypaisa" name="onlineMethod" type="radio" value="Easypaisa" class="h-4 w-4" checked><label for="easypaisa" class="ml-2 block text-sm">Easypaisa</label></div>`; paymentNumberToShow = paymentSettings.easypaisa.number; } if (paymentSettings.jazzcash?.enabled) { onlinePaymentOptionsHTML += `<div class="flex items-center"><input id="jazzcash" name="onlineMethod" type="radio" value="Jazzcash" class="h-4 w-4" ${!paymentSettings.easypaisa?.enabled ? 'checked' : ''}><label for="jazzcash" class="ml-2 block text-sm">Jazzcash</label></div>`; if (!paymentNumberToShow) paymentNumberToShow = paymentSettings.jazzcash.number; } let paymentMethodsHTML = `<div class="flex items-center"><input id="cod" name="paymentMethod" type="radio" value="Cash on Delivery" class="h-4 w-4 payment-method-radio" checked><label for="cod" class="ml-3 block text-sm">Cash on Delivery</label></div>`; if (paymentSettings.easypaisa?.enabled || paymentSettings.jazzcash?.enabled) { paymentMethodsHTML += `<div class="flex items-center"><input id="online" name="paymentMethod" type="radio" value="Online Payment" class="h-4 w-4 payment-method-radio"><label for="online" class="ml-3 block text-sm">Online Payment</label></div>`; } const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); checkoutContent.innerHTML = ` <div class="flex justify-between items-center p-5 border-b"><h2 class="text-xl font-semibold">Delivery Details</h2><button class="back-to-cart-btn text-sm font-semibold text-brand-primary hover:underline">&larr; Back to Cart</button></div> <div class="flex-grow p-6 overflow-y-auto"><form id="checkout-form"> <div class="mb-4"><label class="block text-sm font-medium">Full Name</label><input type="text" id="fullName" name="fullName" class="mt-1 w-full p-2 border rounded" value="${userState.name || ''}" required></div> <div class="mb-4"><label class="block text-sm font-medium">Phone Number</label><input type="tel" id="phone" name="phone" class="mt-1 w-full p-2 border rounded" value="${userState.address.phone || ''}" required></div> <div class="mb-4"><label class="block text-sm font-medium">Full Address</label><textarea id="address" name="address" rows="3" class="mt-1 w-full p-2 border rounded" required>${userState.address.line1 || ''}</textarea></div> <div class="mb-6"><label class="block text-sm font-medium">City</label><input type="text" id="city" name="city" class="mt-1 w-full p-2 border rounded" value="${userState.address.city || ''}" required></div> <fieldset><legend class="text-sm font-medium">Payment Method</legend><div class="mt-2 space-y-2">${paymentMethodsHTML}</div></fieldset> <div id="cod-delivery-info" class="mt-4 p-4 border-l-4 border-blue-400 bg-blue-50 space-y-2"><p class="text-sm font-semibold text-blue-800">Delivery Information</p><div class="text-xs text-blue-700"><p class="font-medium">Schedule:</p><p class="whitespace-pre-wrap">${deliverySettings.schedule || 'Not available'}</p></div><div class="text-xs text-blue-700"><p class="font-medium">Timings:</p><p>${deliverySettings.timing || 'Not available'}</p></div></div> <div id="online-payment-details" class="hidden mt-4 p-4 border rounded-md bg-gray-50 space-y-4"> <p class="text-sm font-semibold">Please send the total amount of <strong class="text-brand-secondary">PKR ${total.toFixed(2)}</strong> to:</p> <div class="p-3 bg-white border rounded text-center"><p class="text-xs text-gray-500">Account Number</p><p class="font-mono font-bold text-lg">${paymentNumberToShow || 'Not Configured'}</p></div> <div class="flex gap-4">${onlinePaymentOptionsHTML}</div> <div><label for="trxId" class="block text-sm font-medium">Transaction ID (TrxID)</label><input type="text" id="trxId" name="trxId" class="mt-1 w-full p-2 border rounded" placeholder="Enter your transaction ID"></div> <p class="text-xs text-gray-500 mt-1">Please send proof of payment on WhatsApp.</p> </div> </form></div> <div class="p-5 border-t bg-gray-50"><button type="submit" form="checkout-form" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700">Place Order on WhatsApp</button></div>`; const paymentRadios = checkoutContent.querySelectorAll('.payment-method-radio'); const onlineDetails = checkoutContent.querySelector('#online-payment-details'); const codInfo = checkoutContent.querySelector('#cod-delivery-info'); const trxIdInput = onlineDetails.querySelector('#trxId'); paymentRadios.forEach(radio => { radio.addEventListener('change', (e) => { if (e.target.value === 'Online Payment') { onlineDetails.classList.remove('hidden'); codInfo.classList.add('hidden'); trxIdInput.required = true; } else { onlineDetails.classList.add('hidden'); codInfo.classList.remove('hidden'); trxIdInput.required = false; } }); }); };
+
+            // --- PWA Logic ---
+            const initPWA = () => {
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', () => {
+                        navigator.serviceWorker.register('/sw.js')
+                            .then(reg => console.log('Service worker registered.', reg))
+                            .catch(err => console.error('Service worker registration failed:', err));
+                    });
+                }
+
+                let deferredPrompt;
+                const installBanner = document.getElementById('install-pwa-banner');
+                const installBtn = document.getElementById('install-pwa-btn');
+                
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    deferredPrompt = e;
+                    installBanner.classList.remove('hidden');
+                    installBanner.classList.add('flex');
+                });
+
+                installBtn.addEventListener('click', async () => {
+                    installBanner.classList.add('hidden');
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log(`User response to install prompt: ${outcome}`);
+                        deferredPrompt = null;
+                    }
+                });
+            };
+            
+            // --- Event Listeners ---
+            function attachEventListeners() {
+                productGrid.addEventListener('click', e => { 
+                    const card = e.target.closest('.product-card');
+                    if (!card) return;
+                    if (e.target.closest('.add-to-cart-btn')) { addToCart(card.dataset.id); }
+                    if (e.target.closest('.favorite-btn')) { toggleFavorite(card.dataset.id); }
+                });
+
+                categoryFiltersContainer.addEventListener('click', e => {
+                    if (e.target.classList.contains('category-btn')) { currentCategoryFilter = e.target.dataset.category; renderCategories(); filterAndRenderProducts(); }
+                });
+                
+                searchBar.addEventListener('input', filterAndRenderProducts);
+
+                productViewNav.addEventListener('click', e => { if(e.target.classList.contains('product-view-btn')) { currentProductView = e.target.dataset.view; productViewNav.querySelectorAll('.product-view-btn').forEach(btn => { btn.classList.remove('text-brand-primary', 'border-brand-primary'); btn.classList.add('text-gray-500', 'border-transparent'); }); e.target.classList.add('text-brand-primary', 'border-brand-primary'); filterAndRenderProducts(); } });
+
+                document.getElementById('cart-button').addEventListener('click', () => openPanel(document.getElementById('cart-panel')));
+                document.getElementById('profile-button').addEventListener('click', () => userState.loggedIn ? renderProfileModal('main') : renderAuthModal());
+                
+                document.body.addEventListener('click', e => {
+                    const target = e.target;
+                    if (target.classList.contains('pack-toggle-checkbox')) { togglePackInCart(target.dataset.cartId); }
+                    const cartItemControls = target.closest('[data-cart-id]');
+                    if (cartItemControls) {
+                        const cartId = cartItemControls.dataset.cartId;
+                        if (target.classList.contains('increase-qty')) { changeQuantity(cartId, 1); }
+                        if (target.classList.contains('decrease-qty')) { changeQuantity(cartId, -1); }
+                        if (target.classList.contains('remove-item-btn')) { cart = cart.filter(i => i.id !== cartId); updateCartUI(); }
+                    }
+                    if (e.target.classList.contains('close-panel-btn')) closePanel(e.target.closest('.fixed'));
+                    if (e.target.classList.contains('close-modal-btn')) hideModal(e.target.closest('.fixed'));
+                    if (e.target.id === 'checkout-btn') { if(userState.loggedIn) { closePanel(document.getElementById('cart-panel')); renderCheckoutPanel(); openPanel(document.getElementById('checkout-panel')); } else { closePanel(document.getElementById('cart-panel')); renderAuthModal(); } }
+                    if (e.target.classList.contains('back-to-cart-btn')) { closePanel(document.getElementById('checkout-panel')); openPanel(document.getElementById('cart-panel')); }
+                    if (e.target.id === 'logout-btn') { auth.signOut().then(() => hideModal(document.getElementById('profile-modal'))); }
+                    if (e.target.classList.contains('show-signup-link')) { e.preventDefault(); renderAuthModal(false); }
+                    if (e.target.classList.contains('show-login-link')) { e.preventDefault(); renderAuthModal(true); }
+                    if (e.target.classList.contains('profile-view-btn')) { renderProfileModal(e.target.dataset.view); }
+                });
+
+                document.body.addEventListener('submit', async e => {
+                    e.preventDefault();
+                    if (e.target.id === 'edit-profile-form') { const formData = new FormData(e.target); const newName = formData.get('name'); auth.currentUser.updateProfile({ displayName: newName }).then(() => { userState.name = newName; userState.address = { phone: formData.get('phone'), line1: formData.get('address'), city: formData.get('city') }; alert("Profile updated!"); renderProfileModal('main'); updateUIForAuthState(); }).catch(err => alert(err.message)); }
+                    if (e.target.id === 'checkout-form') { const formData = new FormData(e.target); const customerDetails = { fullName: formData.get('fullName'), phone: formData.get('phone'), address: formData.get('address'), city: formData.get('city') }; const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); const newOrderRef = db.ref(`orders/${userState.uid}`).push(); const newOrder = { id: newOrderRef.key, uid: userState.uid, timestamp: firebase.database.ServerValue.TIMESTAMP, date: new Date().toLocaleDateString('en-GB'), items: [...cart], total: total, status: 'Pending', paymentMethod: formData.get('paymentMethod'), customer: customerDetails }; let orderMessage = `🎉 *New Order from ${siteSettings.general?.storeName || 'Friends Pharma'}* 🎉\n\n*Customer Details:*\nName: ${customerDetails.fullName}\nPhone: ${customerDetails.phone}\nAddress: ${customerDetails.address}, ${customerDetails.city}\n\n*Order Summary:*\n`; cart.forEach(item => { const quantityText = item.isPack ? `(x${item.quantity} Pack)` : `(x${item.quantity})`; orderMessage += `- ${item.name.replace(' (Full Pack)','')} ${quantityText} - PKR ${(item.price * item.quantity).toFixed(2)}\n`; }); orderMessage += `\n*Total Amount:* PKR ${total.toFixed(2)}`; if (formData.get('paymentMethod') === 'Online Payment') { newOrder.trxId = formData.get('trxId'); newOrder.onlineMethod = formData.get('onlineMethod'); orderMessage += `\n\n*Payment Method:* ${newOrder.onlineMethod} (Online)\n*Transaction ID:* ${newOrder.trxId}\n\nPlease verify payment.`; } else { orderMessage += `\n\n*Payment Method:* Cash on Delivery\n\nPlease confirm this order.`; } try { await newOrderRef.set(newOrder); const WHATSAPP_NUMBER_FINAL = siteSettings.general?.whatsappNumber || '923019022815'; window.open(`https://wa.me/${WHATSAPP_NUMBER_FINAL}?text=${encodeURIComponent(orderMessage)}`, '_blank'); cart = []; updateCartUI(); closePanel(document.getElementById('checkout-panel')); alert("Order placed successfully!"); renderProfileModal('history'); } catch(error) { alert("Failed to place order: " + error.message); } }
+                    if (e.target.id === 'signup-form-element') { const name = e.target.querySelector('[name="name"]').value; const email = e.target.querySelector('[name="email"]').value; const password = e.target.querySelector('[name="password"]').value; auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {return userCredential.user.updateProfile({displayName: name});}).then(() => {hideModal(document.getElementById('auth-modal'));}).catch((error) => {alert(`Signup failed: ${error.message}`);}); }
+                    if (e.target.id === 'login-form-element') { const email = e.target.querySelector('[name="email"]').value; const password = e.target.querySelector('[name="password"]').value; auth.signInWithEmailAndPassword(email, password).then(() => {hideModal(document.getElementById('auth-modal'));}).catch((error) => {alert(`Login failed: ${error.message}`);}); }
+                });
+            }
+            init();
+        });
+    </script>
+</body>
+</html>
